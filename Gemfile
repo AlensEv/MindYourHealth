@@ -1,6 +1,12 @@
 source "https://rubygems.org"
 
-ruby "3.2.2"
+ruby "3.0.2"
+#postgres
+
+
+#User authenticatication system, handling logins and signups
+gem 'devise'
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
@@ -65,3 +71,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+
+
+
+gem "pg", "~> 1.5"
