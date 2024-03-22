@@ -1,0 +1,6 @@
+<select id="symptoms-dropdown">
+  <option value="">Select a symptom</option>
+  <% @symptoms.each do |symptom| %>
+    <option value="<%= symptom %>"><%= symptom %></option>
+  <% end %>
+</select>
