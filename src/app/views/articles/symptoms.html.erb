@@ -8,7 +8,7 @@
     .sidebar {
       height: 100%;
       width: 150px;
-      position: relative;
+      position: fixed;
       top: 0;
       left: 0;
       background-color: #19514c;
@@ -28,7 +28,7 @@
     }
 
     .content {
-      margin-left: 0px;
+      margin-left: 250px;
       padding: 16px;
       
       
@@ -44,8 +44,8 @@
   </style>
 </head>
 <body>
-
-  <div class="sidebar">
+<!-nav bar  !->
+<div class="sidebar">
     <%= link_to "Home", index_page_path %>
 
   <%= link_to "Symptoms", symptoms_page_path %>
@@ -67,35 +67,18 @@
 
 </div>
 
+<div class="content">
+  <h1>Lets help with your symptoms</h1>
+  <div style="padding:20px">
+    <select id="symptoms-dropdown">
+      <option value="">Choose your symptom</option>
+    </select>
+    <script>
 
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </script>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
 
 
 </body>
 </html>
-

@@ -1,3 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindyYourHealth</title>
+  <style>
+    .sidebar {
+      height: 100%;
+      width: 150px;
+      position: relative;
+      top: 0;
+      left: 0;
+      background-color: #19514c;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #000000;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    .content {
+      margin-left: 0px;
+      padding: 16px;
+      
+      
+    }
+
+    body {
+      font-family: "Lucida Console", "Courier New", monospace;
+      color: #19514c;
+      background-color: #fff6eb;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <%= link_to "Home", index_page_path %>
+
+  <%= link_to "Symptoms", symptoms_page_path %>
+
+  <li class="nav-item">
+    <%= link_to "Paitent Portal", new_user_session_path, class: "btn btn-outline-primary" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Admin Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Health Pro Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
+  </li>
+
+
+  <%= link_to "About", about_page_path %>
+
+</div>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
