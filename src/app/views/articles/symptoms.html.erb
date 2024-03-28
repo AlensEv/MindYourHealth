@@ -72,10 +72,26 @@
   <div style="padding:20px">
     <select id="symptoms-dropdown">
       <option value="">Choose your symptom</option>
+      <% if @res %>
+      <% @temp.each do |val| %>
+      <option value=""> <%= val["Name"] %> </option>
+
+      
+      <% end %>
+
+
+
+
+     
+      <% end %>
+
     </select>
+  
+
     <script>
 
     </script>
+
   </div>
 
 
