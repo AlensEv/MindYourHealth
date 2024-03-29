@@ -23,6 +23,8 @@ get '/admin', to: 'articles#admins', as: 'admin_page'
 get '/users', to: 'articles#users', as: 'users_page'
 get '/healthcare', to: 'articles#healthcares', as: 'healthcarepro_page'
 
+#post
+post '/reports',  to: 'articles#save_reports'
 
 
 # Define routes for different admin login

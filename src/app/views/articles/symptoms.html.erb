@@ -9,7 +9,35 @@
 
 </head>
 <body>
-  <form action="" method="get"> 
+
+  <style>
+  .mult-select-tag .body {
+    display: flex;
+    border: 1px solid var(--border-color);
+    background: white;
+    min-height: 2.15rem;
+    width:100%;
+    min-width: 10rem;
+
+}
+.mult-select-tag {
+    display: flex;
+    width:30%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    --border-color: rgb(218, 221, 224);
+    font-family: Verdana, sans-serif;
+}
+input[type="submit"] {
+    width: 30%;
+    height: 50px;
+    
+}
+
+</style>
 
 <div class="sidebar">
     <%= link_to "Home", index_page_path %>
@@ -39,11 +67,14 @@
   <h1>Lets help with your symptoms</h1>
   
   <div style="padding:20px">
-  <form action="" method="get">
-    <select id="symptoms-dropdown" multiple >
-      <% if @res %>
+  
+    <form action="/reports" method="POST">
+      <p>Session Token: <%= @temp1 %></p>
+
+    <select name="articles[symptoms]" id="symptoms-dropdown" style="width:30%" multiple >
+      <% if @temp %>
       <% @temp.each do |val| %>
-      <option value=""> <%= val["Name"] %> </option>
+      <option value="<%= val["ID"] %> "  > <%= val["Name"] %> </option>
 
       
       <% end %>
@@ -55,8 +86,11 @@
       <% end %>
 
     </select> 
-  </div>
-</form>
+     <input type="submit" value="Submit">
+</form> 
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
 <script>
   new MultiSelectTag('symptoms-dropdown', {
