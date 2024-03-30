@@ -1,19 +1,41 @@
 Rails.application.routes.draw do
-  get 'diagnostics/articles'
+
+
   devise_for :healthcares
+  #devise_scope :healthcare do
+   # delete '/healthcares/sign_out', to: 'sessions#destroy', as :destroy_healthcares_session
+
+   # end
+
+
 
 
   devise_for :admin
+  #devise_scope :admin do
+   # delete '/admin/sign_out', to: 'sessions#destroy', as: :destroy_admin_session
+  #end
+
+
 
   devise_for :users
+  #devise_scope :users do
+  #  delete '/users/sign_out', to: 'sessions#destroy', as: :destroy_users_session
+  #end
+
+get 'diagnostics/articles'
 # Define routes for the about page
 get '/about', to: 'about#show', as: 'about_page'
 
 # Define routes for the symptoms page
 get '/symptoms', to: 'articles#symptoms', as: 'symptoms_page'
 
+
 # Root route
-root "articles#index"
+root 'pages#home'
+get '/home', to: 'pages#home', as: 'home_page'
+
+
+get "articles/index"
 get '/index', to: 'articles#index', as: 'index_page'
 
 # Define routes for articles
@@ -25,7 +47,8 @@ get '/users', to: 'articles#users', as: 'users_page'
 get '/healthcare', to: 'articles#healthcares', as: 'healthcarepro_page'
 get '/diagnostics', to: 'diagnostics#articles', as: 'diagnosticso_page'
 
-
+#DELETE '/healthcares/sign_out', to: 'devise/sessions#destroy', destroy_healthcare_session_path
+#delete '/healthcares/sign_out', to: 'healthcares/healthcare_sessions#destroy', as: :destroy_healthcares_session
 #post
 post '/reports',  to: 'articles#save_reports'
 

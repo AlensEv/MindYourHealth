@@ -102,7 +102,7 @@ input[type="submit"] {
   letter-spacing: 0.35px;
   color: #0c9f01;
 }
-.table tbody tr td .btn{
+.table tbody tr td .btn {
   width: 130px;
   text-decoration: none;
   line-height: 35px;
@@ -196,31 +196,31 @@ input[type="submit"] {
             <td data-label="paitent"> John Mike</td>
             <td data-label="Symptoms"> headache, fever,   </td>
             <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
-            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+            <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
           </tr>
           <tr>
             <td data-label="paitent"> Tee Li</td>
             <td data-label="Symptoms"> headache, fever,   </td>
             <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
-            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+            <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
           </tr>
           <tr>
             <td data-label="paitent"> Jordan Bron</td>
             <td data-label="Symptoms"> headache, fever,   </td>
             <td data-label="status"> <span class="text_closed">  [closed] </span>  </td>
-            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+            <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
           </tr>
           <tr>
             <td data-label="paitent"> Hank Tom</td>
             <td data-label="Symptoms"> headache, fever,   </td>
             <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
-            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+            <td data-label="#" >  <a href="#" class="btn" > diagnose</a> </td>
           </tr>
           <tr>
             <td data-label="paitent"> John Mike</td>
             <td data-label="Symptoms"> headache, fever,   </td>
             <td data-label="status"> <span class="text_closed">  [closed] </span>  </td>
-            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+            <td data-label="#" >  <a href="#" class="btn" > diagnose</a> </td>
           </tr>
 
           
@@ -233,9 +233,14 @@ input[type="submit"] {
 
     </table>
 
+    <li class="nav-item">
+      
 
+      <%= button_to 'Logout', destroy_healthcare_session_path, method: :delete %>
 
+      
 
+    </li>
 
   </div>
 
@@ -259,6 +264,7 @@ input[type="submit"] {
     rounded: true,    // default true
     shadow: true,      // default false
     placeholder: 'Search',  // default Search...
+    clickAnywhereToActivate: true,
 
     tagColor: {
         textColor: '#327b2c',

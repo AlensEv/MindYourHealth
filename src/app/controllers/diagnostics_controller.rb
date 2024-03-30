@@ -24,4 +24,5 @@ class DiagnosticsController < ApplicationController
  #rescue JSON::ParserError => e
  #  puts "Error parsing JSON: #{e.message}"
 #end
+
 end
