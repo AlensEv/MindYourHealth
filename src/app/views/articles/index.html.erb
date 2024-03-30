@@ -16,6 +16,16 @@
 
   <%= link_to "Symptoms", symptoms_page_path %>
 
+ 
+
+  <%= link_to "Health Pro Portal", diagnosticso_page_path %>
+
+  <%= link_to "Paitent Page",users_page_path %>
+
+  <%= link_to "Admin", admin_page_path %>
+ 
+  
+
   <li class="nav-item">
     <%= link_to "Paitent Portal", new_user_session_path, class: "btn btn-outline-primary" %>
   </li>
@@ -24,9 +34,7 @@
     <%= link_to "Admin Portal", new_admin_session_url, class: "btn btn-outline-primary" %>
   </li>
 
-  <li class="nav-item">
-    <%= link_to "Health Pro Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
-  </li>
+
 
 
   <%= link_to "About", about_page_path %>

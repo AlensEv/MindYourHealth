@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'diagnostics/articles'
   devise_for :healthcares
 
 
@@ -22,6 +23,8 @@ get '/articles', to: 'articles#index'
 get '/admin', to: 'articles#admins', as: 'admin_page'
 get '/users', to: 'articles#users', as: 'users_page'
 get '/healthcare', to: 'articles#healthcares', as: 'healthcarepro_page'
+get '/diagnostics', to: 'diagnostics#articles', as: 'diagnosticso_page'
+
 
 #post
 post '/reports',  to: 'articles#save_reports'

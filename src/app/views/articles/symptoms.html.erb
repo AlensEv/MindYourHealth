@@ -44,6 +44,10 @@ input[type="submit"] {
 
   <%= link_to "Symptoms", symptoms_page_path %>
 
+  <%= link_to "Health Pro Portal", diagnosticso_page_path %>
+  
+
+
   <li class="nav-item">
     <%= link_to "Paitent Portal", new_user_session_path, class: "btn btn-outline-primary" %>
   </li>
@@ -71,22 +75,25 @@ input[type="submit"] {
     <form action="/reports" method="POST">
       <p>Session Token: <%= @temp1 %></p>
 
-    <select name="articles[symptoms]" id="symptoms-dropdown" style="width:30%" multiple >
-      <% if @temp %>
+    <select name="articles[symptoms][]" id="symptoms-dropdown" style="width:30%" multiple >
+     
       <% @temp.each do |val| %>
+  
       <option value="<%= val["ID"] %> "  > <%= val["Name"] %> </option>
 
       
       <% end %>
 
-
+ 
 
 
      
-      <% end %>
+     
 
     </select> 
-     <input type="submit" value="Submit">
+     <input type="submit" value="Submit" onclick="alert('symptoms submitted!')">
+     <input type="reset" value="Reset">
+
 </form> 
 
 </div>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
+ 
+  <title>MindYourHealth</title>
+
+</head>
+<body>
+
+  <style>
+  .mult-select-tag .body {
+    display: flex;
+    border: 1px solid var(--border-color);
+    background: white;
+    min-height: 2.15rem;
+    width:100%;
+    min-width: 10rem;
+
+}
+.mult-select-tag {
+    display: flex;
+    width:30%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    --border-color: rgb(218, 221, 224);
+    font-family: Verdana, sans-serif;
+}
+input[type="submit"] {
+    width: 30%;
+    height: 50px;
+    
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.table-container{
+  padding:0 10% ;
+  margin: 40px auto 0;
+
+}
+.heading{
+ font-size: 40px;
+ text-align: center;
+
+ margin-bottom: 40px;
+}
+.table{
+  width: 100%;
+  border-collapse: collapse;
+
+}
+.table thead{
+  background-color: white;
+}
+.table thead tr th{
+  font-size: 14px;
+  letter-spacing: .35px;
+  font-weight: normal;
+  vertical-align: top;
+  padding: 12px;
+  background-color: white;
+  
+}
+
+.table tbody tr th{
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing:0.35px;
+  opacity: 1;
+  padding:12px
+  vertical-align: top;
+  border: 1px solid #dee2e685;
+}
+.table tbody tr td{
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  font-weight: normal;
+  color: #f1f1f1;
+  background-color: #3c3f44;
+  padding: 8px;
+  text-align: center;
+  border: 1px sol solid #dee2e685;
+}
+.table .text_open{
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.35px;
+  color: #FF1046;
+
+}
+.table .text_closed{
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.35px;
+  color: #0c9f01;
+}
+.table tbody tr td .btn{
+  width: 130px;
+  text-decoration: none;
+  line-height: 35px;
+  display: block;
+  background-color: #FF1046;
+  font-weight: #FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none ;
+  border: 1px solid transparent;
+  font-size: 14px;
+  opacity: 1;
+
+}
+@media (max-wdith: 768px){
+  .table thead{
+    display: none;
+
+  }
+  .table, .table tbody, .table tr,.table td{
+    display: block;
+    width: 100%;
+
+  }
+  .table tbody tr td{
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .table td:before{
+    content: atr(data-label);
+    position: absolute;
+    left:0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+
+
+
+
+</style>
+
+<div class="sidebar">
+    <%= link_to "Home", index_page_path %>
+
+  <%= link_to "Symptoms", symptoms_page_path %>
+
+  <%= link_to "Health Pro Portal", diagnosticso_page_path %>
+  <%= link_to "healthcare",healthcarepro_page_path %>
+
+
+  <li class="nav-item">
+    <%= link_to "Paitent Portal", new_user_session_path, class: "btn btn-outline-primary" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Admin Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Health Pro Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
+  </li>
+
+
+  <%= link_to "About", about_page_path %>
+
+</div>
+
+
+<div class="content">
+  <div class="table-container">
+    <h1 class = "heading"> Paitents with Symptoms </h1>
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th>paitent</th>
+          <th>Symptoms</th>
+          <th>Status</th>
+          <th>Send Diagnosis</th>
+
+
+        </tr>
+        <tbody>
+          <tr>
+            <td data-label="paitent"> John Mike</td>
+            <td data-label="Symptoms"> headache, fever,   </td>
+            <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
+            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+          </tr>
+          <tr>
+            <td data-label="paitent"> Tee Li</td>
+            <td data-label="Symptoms"> headache, fever,   </td>
+            <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
+            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+          </tr>
+          <tr>
+            <td data-label="paitent"> Jordan Bron</td>
+            <td data-label="Symptoms"> headache, fever,   </td>
+            <td data-label="status"> <span class="text_closed">  [closed] </span>  </td>
+            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+          </tr>
+          <tr>
+            <td data-label="paitent"> Hank Tom</td>
+            <td data-label="Symptoms"> headache, fever,   </td>
+            <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
+            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+          </tr>
+          <tr>
+            <td data-label="paitent"> John Mike</td>
+            <td data-label="Symptoms"> headache, fever,   </td>
+            <td data-label="status"> <span class="text_closed">  [closed] </span>  </td>
+            <td data-label="#" > <a href="#" class="btn" > Diagnos</a> </td>
+          </tr>
+
+          
+        </tbody>
+
+
+      </thead>
+
+
+
+    </table>
+
+
+
+
+
+  </div>
+
+
+</form> 
+
+</div>
+
+<div class="content">
+
+   
+  
+
+  
+  </form> 
+  
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+<script>
+  new MultiSelectTag('symptoms-dropdown', {
+    rounded: true,    // default true
+    shadow: true,      // default false
+    placeholder: 'Search',  // default Search...
+
+    tagColor: {
+        textColor: '#327b2c',
+        borderColor: '#92e681',
+        bgColor: '#eaffe6',
+    },
+    onChange: function(values) {
+        console.log(values)
+    }
+})
+</script>
+
+</body>
+</html>
