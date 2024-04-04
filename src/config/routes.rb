@@ -29,7 +29,7 @@ get '/about', to: 'about#show', as: 'about_page'
 # Define routes for the symptoms page
 get '/symptoms', to: 'articles#symptoms', as: 'symptoms_page'
 
-
+ resources :reports, only: [:create]
 # Root route
 root 'pages#home'
 get '/home', to: 'pages#home', as: 'home_page'
@@ -50,6 +50,7 @@ get '/diagnostics', to: 'diagnostics#articles', as: 'diagnosticso_page'
 #DELETE '/healthcares/sign_out', to: 'devise/sessions#destroy', destroy_healthcare_session_path
 #delete '/healthcares/sign_out', to: 'healthcares/healthcare_sessions#destroy', as: :destroy_healthcares_session
 #post
+
 post '/reports',  to: 'articles#save_reports'
 
 

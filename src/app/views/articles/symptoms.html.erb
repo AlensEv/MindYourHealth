@@ -17,12 +17,12 @@
     background: white;
     min-height: 2.15rem;
     width:100%;
-    min-width: 10rem;
+    min-width: 7rem;
 
 }
 .mult-select-tag {
     display: flex;
-    width:30%;
+    width:15%;
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -32,32 +32,32 @@
     font-family: Verdana, sans-serif;
 }
 input[type="submit"] {
-    width: 30%;
-    height: 50px;
+  margin: 10px 5px 10px 5px;
+    width: 15%;
+    height: 30px;
     
 }
+
+input[type="number"] {
+    margin: 10px 5px 10px 5px;
+    width: 10%;
+    height: 25px;
+    
+}
+
+
+
 
 </style>
 
 <div class="sidebar">
   <%= link_to "Home", home_page_path %>
   
-
-
   <%= link_to "Symptoms", symptoms_page_path %>
-
-  
-  
-
-  
-
 
   <%= link_to "About", about_page_path %>
 
-
 </div>
-
-
 
 
 <div class="content">
@@ -67,36 +67,47 @@ input[type="submit"] {
   <div style="padding:20px">
   
     <form action="/reports" method="POST">
+      <%= csrf_meta_tags %>
       <p>Session Token: <%= @temp1 %></p>
 
     <select name="articles[symptoms][]" id="symptoms-dropdown" style="width:30%" multiple >
      
       <% @temp.each do |val| %>
   
-      <option value="<%= val["ID"] %> "  > <%= val["Name"] %> </option>
+      <option value="<%= "#{val["ID"]},#{val["Name"]}" %>"><%= "#{val["ID"]},#{val["Name"]}"%></option>
       
-      <% end %>
-
+      
+      <% end %>     
  
 
 
-     
-     
+        <p>Please select your gender</p>
+      <input type="radio" id="Gender" name="Gender" value="Male">
+      <label for="Male">Male</label>
+      <input type="radio" id="Gender" name="Gender" value="Female">
+     <label for="Female">Female</label><br>
+       
+        <br>  
+        
 
+  <label for="Age">age</label> <br> 
+  <input type="number" id="Age" name="Age" min="0" max="100" step="1" value="0">
+  <br>
+             
     </select> 
      <input type="submit" value="Submit" >
+     
+     <br>
      <input type="reset" value="Reset">
      
-
+     
 </form> 
 
+
+
 <li class="nav-item">
-      
-
       <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-
-      
-
+    
     </li>
 
 </div>
@@ -118,6 +129,6 @@ input[type="submit"] {
     }
 })
 </script>
-
+</div>
 </body>
 </html>

@@ -5,5 +5,9 @@ class symptoms_controller < ApplicationController
   end
 
 
+  def symptoms
+    @user_id = current_user.id
+    render json: { user_id: user_id }
+  end
 
 end

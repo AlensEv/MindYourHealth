@@ -5,6 +5,26 @@ class DiagnosticsController < ApplicationController
   def articles
   end
 
+  def create
+
+    diagnosis = Diagnosis.create(user_id: params[:user_id], status: params[:status] || false)
+
+
+    params[:symptoms].each do |symptom_id|
+      Symptom.create(name: '...', diagnosis_id: diagnosis.id, user_id: params[:user_id])
+
+      if diagnosis.save
+
+      else
+        puts "else"
+
+
+    end
+
+    puts diagnosis
+
+  end
+end
 
 
   #def diagnosis
