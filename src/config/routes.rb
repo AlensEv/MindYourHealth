@@ -29,7 +29,6 @@ get '/about', to: 'about#show', as: 'about_page'
 # Define routes for the symptoms page
 get '/symptoms', to: 'articles#symptoms', as: 'symptoms_page'
 
- resources :reports, only: [:create]
 # Root route
 root 'pages#home'
 get '/home', to: 'pages#home', as: 'home_page'

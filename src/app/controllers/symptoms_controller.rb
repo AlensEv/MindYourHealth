@@ -10,4 +10,6 @@ class symptoms_controller < ApplicationController
     render json: { user_id: user_id }
   end
 
+  
+
 end

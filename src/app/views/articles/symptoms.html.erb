@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
  
@@ -67,7 +69,8 @@ input[type="number"] {
   <div style="padding:20px">
   
     <form action="/reports" method="POST">
-      <%= csrf_meta_tags %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+     
       <p>Session Token: <%= @temp1 %></p>
 
     <select name="articles[symptoms][]" id="symptoms-dropdown" style="width:30%" multiple >
@@ -82,16 +85,16 @@ input[type="number"] {
 
 
         <p>Please select your gender</p>
-      <input type="radio" id="Gender" name="Gender" value="Male">
+      <input name="articles[Gender][]" type="radio" id="Gender" name="Gender" value="Male">
       <label for="Male">Male</label>
-      <input type="radio" id="Gender" name="Gender" value="Female">
+      <input name="articles[Gender][]" type="radio" id="Gender" name="Gender" value="Female">
      <label for="Female">Female</label><br>
        
         <br>  
         
 
   <label for="Age">age</label> <br> 
-  <input type="number" id="Age" name="Age" min="0" max="100" step="1" value="0">
+  <input name="articles[Age][]" type="number" id="Age"  min="0" max="100" step="1" value="0">
   <br>
              
     </select> 
