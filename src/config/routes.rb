@@ -15,7 +15,9 @@ Rails.application.routes.draw do
    # delete '/admin/sign_out', to: 'sessions#destroy', as: :destroy_admin_session
   #end
 
-
+  resources :articles do
+    post 'save_reports', on: :collection
+  end
 
   devise_for :users
   #devise_scope :users do
@@ -28,6 +30,7 @@ get '/about', to: 'about#show', as: 'about_page'
 
 # Define routes for the symptoms page
 get '/symptoms', to: 'articles#symptoms', as: 'symptoms_page'
+
 
 # Root route
 root 'pages#home'
@@ -51,7 +54,7 @@ get '/diagnostics', to: 'diagnostics#articles', as: 'diagnosticso_page'
 #post
 
 post '/reports',  to: 'articles#save_reports'
-
+post '/symptoms', to: 'articles#save_reports'
 
 # Define routes for different admin login
 
