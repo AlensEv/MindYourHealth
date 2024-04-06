@@ -190,22 +190,33 @@ input[type="submit"] {
           <th>Send Diagnosis</th>
         </tr>
 
-
+   
 
 
         <tbody>
+        <%Diagnostic.all.each do |diagnosed| %>
           <tr>
-            <td data-label="patient"> John Mike</td>
-            <td data-label="Symptoms"> headache, fever,   </td>
-            <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
+            <td data-label="patient"> <%= User.find(diagnosed.user_id).email%> </td>
+
+            
+            <td data-label="Symptoms">
+  <% symptoms = Symptom.where(diagnostics_id: diagnosed.id).first %> <% symptom_names = symptoms.symptoms.gsub(/[\[\]"]/, "").split(", ").join(", ") %> <%= symptom_names %> </td>
+
+             <%if diagnosed.status %>
+             <td data-label="status"> <span class="text_closed">  [closed] </span>  </td> 
+
+            <%else %> 
+
+            
+            <td data-label="status"> <span class="text_open">  [Open] </span>  </td> 
+            <% end %> 
+
+
+
+
             <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
           </tr>
-          <tr>
-            <td data-label="patient"> Tee Li</td>
-            <td data-label="Symptoms"> headache, fever,   </td>
-            <td data-label="status"> <span class="text_open">  [Open] </span>  </td>
-            <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
-          </tr>
+       <% end %>
           <tr>
             <td data-label="patient"> Jordan Bron</td>
             <td data-label="Symptoms"> headache, fever,   </td>

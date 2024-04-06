@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_05_033152) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "symptoms_id"
     t.string "symptoms"
     t.integer "Age"
     t.string "Gender"
