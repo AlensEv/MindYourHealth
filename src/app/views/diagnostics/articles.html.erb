@@ -202,7 +202,7 @@ input[type="submit"] {
             <td data-label="Symptoms">
   <% symptoms = Symptom.where(diagnostics_id: diagnosed.id).first %> <% symptom_names = symptoms.symptoms.gsub(/[\[\]"]/, "").split(", ").join(", ") %> <%= symptom_names %> </td>
 
-             <%if diagnosed.status %>
+             <%if diagnosed.status %> <%# when status is true  we close it %>
              <td data-label="status"> <span class="text_closed">  [closed] </span>  </td> 
 
             <%else %> 
@@ -215,6 +215,13 @@ input[type="submit"] {
 
 
             <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
+
+
+
+
+
+
+
           </tr>
        <% end %>
           <tr>
