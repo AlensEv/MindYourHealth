@@ -5,70 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MindyYourHealth</title>
   <style>
-    .sidebar {
-      height: 100%;
-      width: 150px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #19514c;
-      padding-top: 20px;
-    }
+ * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          list-style: none;
+        }
 
-    .sidebar a {
-      padding: 10px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #000000;
-      display: block;
-    }
+        body {
+          align-items: center;
+          min-height: 100vh;
+          display: flex;
 
-    .sidebar a:hover {
-      color: #f1f1f1;
-    }
-
-    .content {
-      margin-left: 250px;
-      padding: 16px;
-      
-      
-    }
-
-    body {
-      font-family: "Lucida Console", "Courier New", monospace;
-      color: #19514c;
-      background-color: #fff6eb;
-      margin: 0;
-      padding: 0;
-    }
+        }
   </style>
 </head>
 <body>
-
 <div class="sidebar">
-  <%= link_to "Home", index_page_path %>
+      <%= link_to "Home", home_page_path %> 
+      <%= link_to "Paitent Portal", symptoms_page_path %> 
+      <%= link_to "Health Pro Portal", diagnosticso_page_path %>
 
-  <%= link_to "Symptoms", "#symptoms" %>
-
-  <li class="nav-item">
-    <%= link_to "Paitent Portal", new_user_session_path, class: "btn btn-outline-primary" %>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "Admin Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "Health Pro Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
-  </li>
-
-
-  <%= link_to "About", about_page_path %>
- 
-  <%= link_to "HomePage", home_page_path %>
-  
-
-</div>
+      <%= link_to "About", about_page_path %>
+    </div>
 
 <div class="content">
   <h1>About us </h1>

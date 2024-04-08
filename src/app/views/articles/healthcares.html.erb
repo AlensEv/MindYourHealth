@@ -13,24 +13,11 @@
 <div class="sidebar">
   <%= link_to "Home", home_page_path %>
 
-  <%= link_to "Symptoms", symptoms_page_path %>
+  <%= link_to "Health Pro Portal", diagnosticso_page_path %>
 
-  <%= link_to "diagnostics",diagnosticso_page_path %>
+  <%= link_to "healthcare Newsletter",healthcarepro_page_path %>
 
-  <%= link_to "healthcare",healthcarepro_page_path %>
-  
-  <li class="nav-item">
-    <%= link_to "Paitent Portal", new_user_session_path, class: "btn btn-outline-primary" %>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "Admin Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
-  </li>
-
-  <li class="nav-item">
-    <%= link_to "Health Pro Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
-  </li>
-
+   <%= link_to "Paitent Portal", symptoms_page_path %> 
 
   <%= link_to "About", about_page_path %>
 

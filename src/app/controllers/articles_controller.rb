@@ -48,10 +48,11 @@ class ArticlesController < ApplicationController
     else
       json_result = JSON.parse(@res.body)
       diag_saved_here =  json_result.map { |save_diagn| save_diagn['Issue']['Name'] }.join(', ')
+      # professional_to_see = json_result.map { |save_diagn| save_diagn['Issue']['Specialisation'] }.join(', ')
 
       puts diag_saved_here
 
-      the_user_report.description = " #{we_foundsymptom_names}. Here is your diagnosis: #{diag_saved_here}"
+      the_user_report.description = " #{we_foundsymptom_names} Here is your possible diagnosis: #{diag_saved_here}    "
       # the_user_report.description = "Your symptoms were #{we_foundsymptom_names}. Here is your diagnosis: #{diag_saved_here}"
 
 
