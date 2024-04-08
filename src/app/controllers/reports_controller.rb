@@ -3,6 +3,10 @@ class ReportsController < ApplicationController
     @user_id = current_user.id
     render json: { user_id: user_id }
   end
+  def articles
+    @Reports = Report.all
+  end
+
 
 
   def create
