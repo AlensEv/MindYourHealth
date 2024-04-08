@@ -30,6 +30,8 @@ get '/about', to: 'about#show', as: 'about_page'
 
 # Define routes for the symptoms page
 get '/symptoms', to: 'articles#symptoms', as: 'symptoms_page'
+post '/symptoms', to: 'articles#GetDiag', as: 'symptoms_post_page'
+
 
 
 # Root route
@@ -49,12 +51,18 @@ get '/users', to: 'articles#users', as: 'users_page'
 get '/healthcare', to: 'articles#healthcares', as: 'healthcarepro_page'
 get '/diagnostics', to: 'diagnostics#articles', as: 'diagnosticso_page'
 
+
 #DELETE '/healthcares/sign_out', to: 'devise/sessions#destroy', destroy_healthcare_session_path
 #delete '/healthcares/sign_out', to: 'healthcares/healthcare_sessions#destroy', as: :destroy_healthcares_session
 #post
 
+
 post '/reports',  to: 'articles#save_reports'
 post '/symptoms', to: 'articles#save_reports'
+
+
+
+post '/diagnostics/articles', to: 'articles#symptoms'
 
 # Define routes for different admin login
 

@@ -4,13 +4,55 @@ class ArticlesController < ApplicationController
   before_action :current_user
 
   protect_from_forgery unless: -> { request.format.json? }
-  def articles
+
+  def GetDiag
+
+    puts params
+    we_foundsymptom_Id = params[:symptom_ids].gsub(/[\[\]"]/, "").split(", ").join(",")
+    puts we_foundsymptom_Id
+    the_diag = Diagnostic.find(params[:diagnostics_id])
+
+      #finding gender
+      user_gender = params[:gender]
+
+
+      birth_year = Date.today.year - params[:age].to_i
+
+
+      token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImV2cmFhMUB0Y25qLmVkdSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTM3MzYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjQtMDMtMjgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTcxMjU1NzI4MSwibmJmIjoxNzEyNTUwMDgxfQ.2xWNMZbhTrxEAoMNIJ0sZ0-KeFe9JEUG5vwXMNFIYT8"
+
+
+     url = URI("https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[#{we_foundsymptom_Id}]&gender=#{user_gender}&year_of_birth=#{birth_year}&token=#{token}&format=json&language=en-gb")
+
+
+    @res = Net::HTTP.get_response(url)
+    the_user = User.find(the_diag.user_id)
+    puts "HELLO"
+    puts the_user
+    puts "HELLO"
+
+    the_user_report = Report.new(user_id: the_user.id)
+
+    if @res.body == "[]"
+      the_user_report.description = "This symptoms are not diagnosable. Sorry! Please try a new set of symptoms."
+    else
+      json_result = JSON.parse(@res.body)
+    end
+    the_user_report.save!
+    puts the_user_report.description
+    the_diag.status = true
+    the_diag.save!
+
+    redirect_to diagnosticso_page_path
   end
 
 
 
+
+
+
    def symptoms
-       url = URI("https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImV2cmFhMUB0Y25qLmVkdSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTM3MzYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjQtMDMtMjgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTcxMjUzMjAwOSwibmJmIjoxNzEyNTI0ODA5fQ.i77b4FDNjpULZFpiJ8tooaerMeSocu1zldVMR-M0wiM&format=json&language=en-gb")
+       url = URI("https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImV2cmFhMUB0Y25qLmVkdSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTM3MzYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjQtMDMtMjgiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTcxMjU1MTM0NiwibmJmIjoxNzEyNTQ0MTQ2fQ.OZwch6HoRRyIidjhHqwcgXZ6q0hpqa-9mdWZj_TJCGo&format=json&language=en-gb")
 
 
      @res = Net::HTTP.get_response(url)
@@ -25,6 +67,28 @@ class ArticlesController < ApplicationController
     @temp1 = Base64.decode64(session[:session_id])
     rescue JSON::ParserError => e
       puts "Error parsing JSON: #{e.message}"
+
+
+
+
+
+
+
+
+      puts "hello "
+      puts params
+      new_symptoms = params[:symptom_names]
+      puts new_symptoms
+
+      puts "bye"
+
+
+
+     redirect_to symptoms_page_path
+
+
+
+
    end
 
 
@@ -54,6 +118,7 @@ class ArticlesController < ApplicationController
    end
 
    def save_reports
+
     if params[:articles].present?
       puts articles_params
 
@@ -98,53 +163,14 @@ class ArticlesController < ApplicationController
       # currently returns true so that means it is getting saved
 
 
-      # if @diag.save
-        # @symptom = Symptom.new do |symptoms|
-        #   symptoms.diagnostics_id = @diag.id
-        #   symptoms.id = current_user.id
-        #   symptoms.name = current_user.email
-        #   symptoms.symptoms = symptom_name_list.to_s
-        #   symptoms.Age =selected_age
-        #   symptoms.Gender =  selected_Gender
-        #   symptoms.Symp_id = symptom_id_list.to_s
 
-        # end
-        # @symptom.save
 
-      # end
+
+
     end
 
 
 
-
-
-
-
-        # @Symptom = Symptom.new(
-        #   diagnostics_id: @diag.id,
-        #   id: current_user.id,
-        #   name: current_user.email,
-        #   symptoms: symptom_name_list.to_s,
-        #   Age: selected_age,
-        #   Gender: selected_Gender,
-        #   Symp_id: symptom_id_list.to_s
-        # )
-
-    #     if @Symptom.save
-    #       redirect_to @Symptom, status: :created
-    #       flash[:success] = "Symptoms sent!"
-    #     else
-
-    #       flash[:error] = "Validation errors: #{@Symptom.errors}"
-    #     end
-    #   else
-    #     puts @diag.errors.full_messages
-    #   end
-
-    #   end
-    #   head :no_content and return
-
-    # end
 
 
   end

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
  
@@ -194,29 +196,32 @@ input[type="submit"] {
 
 
         <tbody>
-        <%Diagnostic.all.each do |diagnosed| %>
+        <%Diagnostic.all.each_with_index do |diagnosed,index| %>
           <tr>
+          <%= form_with url: "/symptoms", method: :post do |f| %>
             <td data-label="patient"> <%= User.find(diagnosed.user_id).email%> </td>
-
+            
             
             <td data-label="Symptoms">
-  <% symptoms = Symptom.where(diagnostics_id: diagnosed.id).first %> <% symptom_names = symptoms.symptoms.gsub(/[\[\]"]/, "").split(", ").join(", ") %> <%= symptom_names %> </td>
+            <% symptoms = Symptom.where(diagnostics_id: diagnosed.id).first %> <% symptom_names = symptoms.symptoms.gsub(/[\[\]"]/, "").split(", ").join(", ") %> <%= symptom_names %> </td>
+            <%= f.hidden_field :diagnostics_id, :value => symptoms.diagnostics_id %>
+            <%= f.hidden_field :symptom_ids, :value => symptoms.Symp_id %>
+            <%= f.hidden_field :age, :value => symptoms.Age %>
+            <%= f.hidden_field :gender, :value => symptoms.Gender %>
 
              <%if diagnosed.status %> <%# when status is true  we close it %>
-             <td data-label="status"> <span class="text_closed">  [closed] </span>  </td> 
+              <td data-label="status"> <span class="text_closed">  [closed] </span>  </td> 
 
-            <%else %> 
+            <%else %>
 
-            
-            <td data-label="status"> <span class="text_open">  [Open] </span>  </td> 
+              <td data-label="status"> <span class="text_open">  [Open] </span>  </td> 
             <% end %> 
-
-
-
-
-            <td data-label="#" > <a href="#" class="btn" > diagnose</a> </td>
-
-
+           
+            
+            
+            
+           <td><%= f.submit "Diagnose" %></td>
+           <% end %>
 
 
 
@@ -265,7 +270,7 @@ input[type="submit"] {
   </div>
 
 
-</form> 
+
 
 </div>
 
@@ -275,7 +280,7 @@ input[type="submit"] {
   
 
   
-  </form> 
+
   
   </div>
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
