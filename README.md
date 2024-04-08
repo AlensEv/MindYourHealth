@@ -8,6 +8,8 @@ scary diagnostic from Google. The way this works is when a user login the their 
 they will be able to send their symptoms to a health professional. This professional will
 be able to send a diagnostic back to the user.
 
+using api: https://apimedic.com/
+
 Port: csc415-server29.hpc.tcnj.edu:3000
 
 
