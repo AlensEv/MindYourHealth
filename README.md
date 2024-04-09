@@ -70,6 +70,13 @@ You can use the following script to install Ruby:
 ```bash
 ./installruby.sh
 ```
+
+## Opensource Maintenance and Communication
+- where community members will discuss and organize issues and bugs;
+     -- The Issues Page can be used to address all issues/bugs for this projects
+- where community will discuss future plans:(https://github.com/TCNJ-SE/MindYourHealth-24-AE/discussions/4)
+- the processes to be followed for contributors to contribute code to the project
+- Thoughtful code can be considered to be accepted 
 ## UI HOMEPAGE<img width="1670" alt="Screenshot 2024-04-08 at 9 51 37 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/24af377c-2350-430a-ad9d-11e544aff1b4">
 
 
