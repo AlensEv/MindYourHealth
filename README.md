@@ -25,7 +25,7 @@ My application would let those who don't have active access to healthcare get a 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Ruby on Rails
 - **Database:** PostgreSQL
--**ApiMedic:** https://apimedic.com/
+- **ApiMedic:** https://apimedic.com/
 - **GitHub:** version control 
   
 
