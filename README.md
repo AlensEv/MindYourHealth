@@ -11,6 +11,14 @@ be able to send a diagnostic back to the user.
 using api: https://apimedic.com/
 
 Port: csc415-server29.hpc.tcnj.edu:3000
+## Commnuity Impact 
+
+→ SOCIAL ISSUE: HUMAN RIGHTS
+
+I plan on creating an application for patients and doctors. I have had the experience where I feel sick or feel like I'm developing symptoms. When I go to search on Google for these symptoms, I get these very scary results and feel like it is the end of the world, so I just go to the doctor's office. It wasn't until recently I had that same situation but my insurance had expired, and I couldn't immediately go to the doctor's office until my insurance had been fully processed. It was a very scary moment because I was stuck with Google and felt like the world was about to end, only to find out months later that I was fine. I realized that there are many people who go through the same situation every day and have it worse than me because they aren't able to afford healthcare at all.
+
+My application would let those who don't have active access to healthcare get a virtual pre-diagnosis from a volunteering health professional. Professionals can include excelling medical students and doctors. This way, patients can have an early warning to something serious or have peace of mind without getting a scary diagnosis from Google.
+
  
 ## Technology Stack
 
@@ -25,6 +33,7 @@ Port: csc415-server29.hpc.tcnj.edu:3000
 
 - Ruby: 3.0.2
 - Postgres : /usr/pgsql-14/bin/postgres
+- HMTL 5
 
 
 ## File Path 
