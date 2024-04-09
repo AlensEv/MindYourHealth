@@ -48,7 +48,13 @@ To get started with MindYourHealth, follow these steps:
 2. Install dependencies using `bundle install`.
 3. Set up the database with `rails db:create` and `rails db:migrate`.
 4. Start the Rails server with ` cd vm-csc415/ MindyourHealth/src rails s --binding 10.18.6.29`.
+## Install Ruby
 
+You can use the following script to install Ruby:
+
+```bash
+./installruby.sh
+```
 ## How to Run
 
 1. Check your IP address:
@@ -63,13 +69,7 @@ To get started with MindYourHealth, follow these steps:
     rails s --binding xxx.xxx.xxx.xxx
     ```
 
-## Install Ruby
 
-You can use the following script to install Ruby:
-
-```bash
-./installruby.sh
-```
 
 ## Opensource Maintenance and Communication
 
