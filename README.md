@@ -70,6 +70,9 @@ You can use the following script to install Ruby:
 ```bash
 ./installruby.sh
 ```
+## UI HOMEPAGE<img width="1670" alt="Screenshot 2024-04-08 at 9 51 37 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/24af377c-2350-430a-ad9d-11e544aff1b4">
+
+
 ## Diagrams
 
 - Use case Diagram <img width="634" alt="Screenshot 2024-04-08 at 9 28 43 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/c652c604-775a-4adb-90fc-65c70463c982">
