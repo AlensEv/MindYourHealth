@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  #This page manages my data 
   require 'base64'
   before_action :authenticate_user!
   before_action :current_user
