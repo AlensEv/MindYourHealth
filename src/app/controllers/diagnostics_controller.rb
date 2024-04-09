@@ -1,12 +1,17 @@
 class DiagnosticsController < ApplicationController
+# This page mainly serves to
   require 'base64'
+  #Healthcare users get authenicated here
   before_action :authenticate_healthcare!
   before_action :current_healthcare
-
+#handles JSON formatting
   protect_from_forgery unless: -> { request.format.json? }
   def articles
 
+
     Diagnostic.all.each do |proposedDiagnosis|
+      # symptom_row = Symptom.where(diagnostics_id: proposedDiagnosis.id).first is querying the
+      # Symptom model from database
       symptom_row = Symptom.where(diagnostics_id: proposedDiagnosis.id).first
 
       #Finding Symptoms ID and Seperating symptoms ID  by comma
@@ -38,10 +43,13 @@ class DiagnosticsController < ApplicationController
      #  puts "\n"
       # print val["Name"]
      #end
+
+
+     #Error checking api
    @temp1 = Base64.decode64(session[:session_id])
    rescue JSON::ParserError => e
      puts "Error parsing JSON: #{e.message}"
-  
+
 
   end
 

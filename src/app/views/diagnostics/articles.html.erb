@@ -1,3 +1,4 @@
+<%# This is the healthcare page where The Healthcare users can  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,12 +151,9 @@ input[type="submit"] {
   }
 }
 
-
-
-
-
 </style>
 
+<%# side bar %>
 <div class="sidebar">
   <%= link_to "Home", home_page_path %>
 
@@ -169,7 +167,7 @@ input[type="submit"] {
 
 </div>
 
-
+<%# Diagnostics table %>
 <div class="content">
   <div class="table-container">
     <h1 class = "heading"> Patients with Symptoms </h1>
@@ -181,8 +179,6 @@ input[type="submit"] {
           <th>Status</th>
           <th>Send Diagnosis</th>
         </tr>
-
-   
 
 
         <tbody>
@@ -206,14 +202,10 @@ input[type="submit"] {
 
               <td data-label="status"> <span class="text_open">  [Open] </span>  </td> 
             <% end %> 
-           
-            
-            
+                
             
            <td><%= f.submit "Diagnose",class: "btn" %></td>
            <% end %>
-
-
 
 
 
@@ -240,17 +232,10 @@ input[type="submit"] {
 
   </div>
 
-
-
-
 </div>
 
 <div class="content">
 
-   
-  
-
-  
 
   
   </div>
