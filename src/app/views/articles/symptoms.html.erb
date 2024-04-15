@@ -7,79 +7,11 @@
   <%= csp_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
- 
+  <%= stylesheet_link_tag 'symptoms' , media: 'all' %>
   <title>MindYourHealth</title>
 
 </head>
 <body>
-
-  <style>
-  .mult-select-tag .body {
-    display: flex;
-    border: 1px solid var(--border-color);
-    background: white;
-    min-height: 2.15rem;
-    width:100%;
-    min-width: 7rem;
-
-}
-.mult-select-tag {
-    display: flex;
-    width:15%;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-    --border-color: rgb(218, 221, 224);
-    font-family: Verdana, sans-serif;
-}
-input[type="submit"] {
-  margin: 10px 5px 10px 5px;
-    width: 15%;
-    height: 30px;
-    
-}
-
-input[type="number"] {
-    margin: 10px 5px 10px 5px;
-    width: 10%;
-    height: 25px;
-    
-}
- .box {
-  border: 1px solid #ccc; 
-  padding: 20px; 
-  border-radius: 5px; 
-}
-
-.box h2 {
-  margin-bottom: 10px;
-}
-
-table {
-  width: 60%; 
-  border-collapse: collapse; 
-}
-
-thead th, tbody td {
-  border: 1px solid #ddd; 
-  padding: 8px;
-}
-
-thead th {
-  background-color: #f2f2f2; 
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f9f9f9; 
-}
-
-tbody tr:hover {
-  background-color: #f0f0f0; 
-}
-
-</style>
 
 <div class="sidebar">
   <%= link_to "Home", home_page_path %>
