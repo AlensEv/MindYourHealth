@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ * Bootstrap  
+ *= require_tree .
+ *= require_self
+ */
+
+ /* Custom styles */
+ 
+ /* Custom styles */
+
+
+/* Bootstrap */
+
+.sidebar {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #19514c;
+    padding-top: 20px;
+  }
+
+  .sidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000000;
+    display: block;
+  }
+
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 16px;
+    
+    
+  }
+
+  body {
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: #19514c;
+    background-color: #fff6eb;
+    margin: 0;
+    padding: 0;
+  }
+  .mult-select-tag {
+    display: flex;
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    --border-color: rgb(218, 221, 224);
+    font-family: Verdana, sans-serif;
+}
+
+.mult-select-tag .wrapper {
+    width: 100%;
+}
+
+.mult-select-tag .body {
+    display: flex;
+    border: 1px solid var(--border-color);
+    background: white;
+    min-height: 2.15rem;
+    width:100%;
+    min-width: 14rem;
+
+}
+
+.mult-select-tag .input-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    padding: 0.1rem;
+    align-items: center;
+}
+
+.mult-select-tag .input-body {
+    display: flex;
+    width: 100%;
+}
+
+.mult-select-tag .input {
+    flex:1;
+    background: transparent;
+    border-radius: 0.25rem;
+    padding: 0.45rem;
+    margin: 10px;
+    color: #2d3748;
+    outline: 0;
+    border: 1px solid var(--border-color);
+}
+
+.mult-select-tag .btn-container {
+    color: #e2eBf0;
+    padding: 0.5rem;
+    display: flex;
+    border-left: 1px solid var(--border-color);
+}
+
+
+

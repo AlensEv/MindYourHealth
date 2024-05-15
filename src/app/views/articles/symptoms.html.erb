@@ -1,0 +1,128 @@
+<%# This is the sympmtoms page where users can select their symptom attributes %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
+  <%= stylesheet_link_tag 'symptoms' , media: 'all' %>
+  <title>MindYourHealth</title>
+
+</head>
+<body>
+
+<div class="sidebar">
+  <%= link_to "Home", home_page_path %>
+  
+  <%= link_to "Symptoms", symptoms_page_path %>
+
+  <%= link_to "About", about_page_path %>
+
+</div>
+
+
+<div class="content">
+
+  <h1>Lets help with your symptoms</h1>
+  
+  <div style="padding:20px">
+  
+    <form action="/reports" method="POST">
+
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+     
+      <p>Please select your symptoms with the dropdown</p>
+
+    <select name="articles[symptoms][]" id="symptoms-dropdown" style="width:30%" multiple >
+     
+      <% @temp.each do |val| %>
+  
+      <option value="<%= "#{val["ID"]},#{val["Name"]}" %>"><%= "#{val["Name"]}"%></option>
+      
+      
+      <% end %>     
+ 
+
+
+        <p>Please select your gender</p>
+      <input name="articles[Gender][]" type="radio" id="Gender" name="Gender" value="Male">
+      <label for="Male">Male</label>
+      <input name="articles[Gender][]" type="radio" id="Gender" name="Gender" value="Female">
+     <label for="Female">Female</label><br>
+       
+        <br>  
+        
+
+  <label for="Age">age</label> <br> 
+  <input name="articles[Age][]" type="number" id="Age"  min="0" max="100" step="1" value="0">
+  <br>
+             
+    </select> 
+     <input type="submit" value="Submit" >
+     
+     <br>
+     <input type="reset" value="Reset">
+     
+     
+</form> 
+
+
+<div class="box">
+   
+    <h2>Proposed Diagnosis</h2>
+    
+    <table>
+<thead>
+  <th>count</th>
+  <th>Recieved Diagnosis</th>
+  
+</thead>
+<tbody>
+  <% Report.all.each do |sent_diag| %>
+    <tr>
+     <td>
+        <%= sent_diag.id %>
+      </td>
+      <td>
+        <%= sent_diag.description %>
+      </td>
+      
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+    
+  </div>
+
+
+
+<li class="nav-item">
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+    
+    </li>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+<script>
+  new MultiSelectTag('symptoms-dropdown', {
+    rounded: true,    // default true
+    shadow: true,      // default false
+    placeholder: 'Search',  // default Search...
+
+    tagColor: {
+        textColor: '#327b2c',
+        borderColor: '#92e681',
+        bgColor: '#eaffe6',
+    },
+    onChange: function(values) {
+        console.log(values)
+    }
+})
+</script>
+</div>
+</body>
+</html>

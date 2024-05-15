@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <%= stylesheet_link_tag 'about' , media: 'all' %>
+
+
+  <%# This is the about page  %>
+  <title>MindyYourHealth</title>
+
+</head>
+<body>
+<div class="sidebar">
+      <%= link_to "Home", home_page_path %> 
+      <%= link_to "Paitent Portal", symptoms_page_path %> 
+      <%= link_to "Health Pro Portal", diagnosticso_page_path %>
+      <li class="nav-item">
+    <%= link_to "Admin Portal", new_admin_session_path, class: "btn btn-outline-primary" %>
+  </li>
+      <%= link_to "About", about_page_path %>
+    </div>
+<%# about page description %>
+<div class="content">
+  <h1>About us </h1>
+
+  <h5>My application is for patients and doctors. It  lets those who dont have active access to health care get a virtual pre-diagnostic from a volunteering health professional. 
+  Professionals can include excelling medical students and doctors. This way patients can have an early warning to someting serious or have peace of mind without getting a scary diagnostic from Google.
+   The way this works is when a user login the their profile, they will be able to send their symptoms to a health professional. This professional will be able to send a diagnostic back to the user. 
+</h5>
+    <script>
+
+    </script>
+  </div>
+
+
+
+</body>
+</html>

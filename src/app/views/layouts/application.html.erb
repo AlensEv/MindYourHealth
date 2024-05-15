@@ -9,6 +9,13 @@
   <%= javascript_importmap_tags %>
 </head>
 <body>
+<style>
+
+
+
+  
+</style>
+  
   <div class="container">
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -19,9 +26,8 @@
     <%= yield %>
   </div>
   <div>
-    <li class="nav-item">
-      <%= button_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
-    </li>
+    
+    
   </div>
 </body>
 </html>

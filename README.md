@@ -13,6 +13,7 @@ using api: https://apimedic.com/
 Port: csc415-server29.hpc.tcnj.edu:3000
 
 Info page: https://github.com/TCNJ-SE/MindYourHealth-24-AE/blob/b690b89119a15a1362a950bb127adbcc4640a094/info.md
+
 ## Commnuity Impact 
 
 → SOCIAL ISSUE: HUMAN RIGHTS

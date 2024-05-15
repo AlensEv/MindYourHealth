@@ -1,14 +1,17 @@
-require 'uri'
-require 'net/http'
+class symptoms_controller < ApplicationController
+  #Authenticates user / patients symptoms page
+  before_action :authenticate_user!
+  before_action :current_user
+  def articles
+  end
 
-url = URI("https://diagnosis.p.rapidapi.com/api/DDxItems/GetSymptoms?AuthenticationID=DEMO_AuthenticationID")
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
+  def symptoms
 
-request = Net::HTTP::Get.new(url)
-request["X-RapidAPI-Key"] = '295a130e1bmshcdaf6dae8992433p140e63jsn55a74ff77d09'
-request["X-RapidAPI-Host"] = 'diagnosis.p.rapidapi.com'
+    @user_id = current_user.id
+    render json: { user_id: user_id }
+  end
 
-response = http.request(request)
-puts response.read_body
+
+
+end

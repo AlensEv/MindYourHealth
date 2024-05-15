@@ -1,0 +1,122 @@
+<%# This is the healthcare page where The Healthcare users can  %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
+  <%= stylesheet_link_tag 'diagnostics' , media: 'all' %>
+  <title>MindYourHealth</title>
+
+</head>
+<body>
+
+<%# side bar %>
+<div class="sidebar">
+  <%= link_to "Home", home_page_path %>
+
+  <%= link_to "Health Pro Portal", diagnosticso_page_path %>
+
+  <%= link_to "healthcare Newsletter",healthcarepro_page_path %>
+
+   <%= link_to "Paitent Portal", symptoms_page_path %> 
+
+  <%= link_to "About", about_page_path %>
+
+</div>
+
+<%# Diagnostics table %>
+<div class="content">
+  <div class="table-container">
+    <h1 class = "heading"> Patients with Symptoms </h1>
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th>patient</th>
+          <th>Symptoms</th>
+          <th>Status</th>
+          <th>Send Diagnosis</th>
+        </tr>
+
+
+        <tbody>
+        <%Diagnostic.all.each_with_index do |diagnosed,index| %>
+          <tr>
+          <%= form_with url: "/symptoms", method: :post do |f| %>
+            <td data-label="patient"> <%= User.find(diagnosed.user_id).email%> </td>
+            
+            
+            <td data-label="Symptoms">
+            <% symptoms = Symptom.where(diagnostics_id: diagnosed.id).first %> <% symptom_names = symptoms.symptoms.gsub(/[\[\]"]/, "").split(", ").join(", ") %> <%= symptom_names %> </td>
+            <%= f.hidden_field :diagnostics_id, :value => symptoms.diagnostics_id %>
+            <%= f.hidden_field :symptom_ids, :value => symptoms.Symp_id %>
+            <%= f.hidden_field :age, :value => symptoms.Age %>
+            <%= f.hidden_field :gender, :value => symptoms.Gender %>
+
+             <%if diagnosed.status %> <%# when status is true  we close it %>
+              <td data-label="status"> <span class="text_closed">  [closed] </span>  </td> 
+
+            <%else %>
+
+              <td data-label="status"> <span class="text_open">  [Open] </span>  </td> 
+            <% end %> 
+                
+            
+           <td><%= f.submit "Diagnose",class: "btn" %></td>
+           <% end %>
+
+
+
+          </tr>
+       <% end %>
+         
+        </tbody>
+
+
+      </thead>
+
+
+
+    </table>
+
+    <li class="nav-item">
+      
+
+      <%= button_to 'Logout', destroy_healthcare_session_path, method: :delete %>
+
+      
+
+    </li>
+
+  </div>
+
+</div>
+
+<div class="content">
+
+
+  
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+<script>
+  new MultiSelectTag('symptoms-dropdown', {
+    rounded: true,    // default true
+    shadow: true,      // default false
+    placeholder: 'Search',  // default Search...
+    clickAnywhereToActivate: true,
+
+    tagColor: {
+        textColor: '#327b2c',
+        borderColor: '#92e681',
+        bgColor: '#eaffe6',
+    },
+    onChange: function(values) {
+        console.log(values)
+    }
+})
+</script>
+
+</body>
+</html>
