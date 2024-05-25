@@ -14,8 +14,6 @@ When a user logs into their profile, they can input their symptoms, which are th
 - Provide accessible pre-diagnostic services.
 - Facilitate communication between patients and health professionals.
 
-**Target Audience:** 
-Patients experiencing symptoms seeking preliminary medical advice.
 
 ## Project Governance
 
