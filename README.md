@@ -10,7 +10,6 @@ be able to send a diagnostic back to the user.
 
 using api: https://apimedic.com/
 
-Port: csc415-server29.hpc.tcnj.edu:3000
 
 Info page: https://github.com/TCNJ-SE/MindYourHealth-24-AE/blob/b690b89119a15a1362a950bb127adbcc4640a094/info.md
 
@@ -82,13 +81,3 @@ You can use the following script to install Ruby:
 - the processes to be followed for contributors to contribute code to the project
 - Thoughtful and useful code can be considered to be accepted 
 ## UI HOMEPAGE<img width="1670" alt="Screenshot 2024-04-08 at 9 51 37 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/24af377c-2350-430a-ad9d-11e544aff1b4">
-
-
-## Diagrams
-
-- Use case Diagram <img width="634" alt="Screenshot 2024-04-08 at 9 28 43 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/c652c604-775a-4adb-90fc-65c70463c982">
-
-- State Diagram<img width="1335" alt="Screenshot 2024-04-08 at 9 39 44 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/66712bbe-346b-4768-bfef-410965e5b202">
-
-- System Sequence Diagram<img width="1335" alt="Screenshot 2024-04-08 at 9 37 33 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/c2bea5c4-75f5-4a1b-84e1-503bb1dc60e2">
-- Class Diagram <img width="1279" alt="Screenshot 2024-04-08 at 9 43 56 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/f7284d39-2359-48bb-b650-487ad7084780">
