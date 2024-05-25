@@ -37,9 +37,6 @@ My application would let those who don't have active access to healthcare get a 
 - HMTL 5
 
 
-## File Path 
-
-- `/home/student1/vm-csc415/MindYourHealth-24-AE/src`
 
 ## Getting Started
 
@@ -48,7 +45,7 @@ To get started with MindYourHealth, follow these steps:
 1. Clone this repository.
 2. Install dependencies using `bundle install`.
 3. Set up the database with `rails db:create` and `rails db:migrate`.
-4. Start the Rails server with ` cd vm-csc415/ MindyourHealth/src rails s --binding 10.18.6.29`.
+   
 ## Install Ruby
 
 You can use the following script to install Ruby:
@@ -73,9 +70,6 @@ You can use the following script to install Ruby:
 
 
 ## Opensource Maintenance and Communication
-
-- where community members will discuss and organize issues and bugs -> The Issues Page can be used to address all issues/bugs for this projects
-- > https://github.com/TCNJ-SE/MindYourHealth-24-AE/issues
 - where community will discuss future plans:(https://github.com/TCNJ-SE/MindYourHealth-24-AE/discussions/4)
 - the processes to be followed for contributors to contribute code to the project
 - Thoughtful and useful code can be considered to be accepted 
