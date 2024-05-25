@@ -70,7 +70,10 @@ You can use the following script to install Ruby:
 
 
 ## Opensource Maintenance and Communication
-- where community will discuss future plans:(https://github.com/TCNJ-SE/MindYourHealth-24-AE/discussions/4)
+
 - the processes to be followed for contributors to contribute code to the project
-- Thoughtful and useful code can be considered to be accepted 
+- Thoughtful and useful code can be considered to be accepted
+## Demo
+https://youtu.be/PHy4Mtk_h9g
+
 ## UI HOMEPAGE<img width="1670" alt="Screenshot 2024-04-08 at 9 51 37 PM" src="https://github.com/TCNJ-SE/MindYourHealth-24-AE/assets/90947905/24af377c-2350-430a-ad9d-11e544aff1b4">
